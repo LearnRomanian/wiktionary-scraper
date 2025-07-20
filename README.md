@@ -94,7 +94,7 @@ This library currently only supports the English version of Wiktionary.
 - [ ] Description
 - [ ] Glyph origin
 - [x] Etymology
-- [ ] Pronunciation
+- [x] Pronunciation
 - [ ] Production
 - [x] Definitions
 - [ ] Usage notes

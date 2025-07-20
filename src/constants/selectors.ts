@@ -39,4 +39,11 @@ export default {
 			elements: "li",
 		},
 	},
+	pronunciation: {
+		list: "ul",
+		item: "li",
+		ipa: "span.IPA",
+		audio: "audio",
+		source: "source",
+	},
 };

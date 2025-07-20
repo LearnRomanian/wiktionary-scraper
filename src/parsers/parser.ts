@@ -219,6 +219,39 @@ function parseSingleEtymology(
 		entrySections[sectionType] = section;
 	}
 
+	// Find pronunciation section if it exists
+	let pronunciationSkeleton: EntrySectionSkeleton | undefined;
+	for (const sectionSkeleton of skeleton.sections) {
+		const [_, sectionName] = patterns.sectionName.exec(sectionSkeleton.name) ?? [];
+		if (sectionName === "Pronunciation" || sectionSkeleton.name === "Pronunciation" || 
+		    sectionSkeleton.name.includes("Pronunciation")) {
+			console.log('Found pronunciation section in TOC:', sectionSkeleton);
+			pronunciationSkeleton = sectionSkeleton;
+			break;
+		}
+	}
+
+	// If no pronunciation section found in TOC, create a dummy one
+	if (!pronunciationSkeleton) {
+		console.log('No pronunciation section found in TOC, creating dummy section');
+		// Create a dummy section for pronunciation
+		pronunciationSkeleton = {
+			id: "Pronunciation",
+			name: "Pronunciation",
+			sections: []
+		};
+	}
+
+	// Parse pronunciation if found
+	if (pronunciationSkeleton && !entrySections.pronunciation) {
+		console.log('Parsing pronunciation section');
+		const pronunciation = parsers.pronunciation($, pronunciationSkeleton);
+		if (pronunciation) {
+			console.log('Pronunciation data found, adding to entry sections');
+			entrySections.pronunciation = pronunciation;
+		}
+	}
+
 	const entries: Entry[] = [];
 	for (const [sectionName, skeleton] of sectionsUnrecognised) {
 		const partOfSpeech = partsOfSpeechMapped[sectionName];
