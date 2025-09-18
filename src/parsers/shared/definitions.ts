@@ -85,6 +85,7 @@ function parseDefinition($: cheerio.CheerioAPI, element: cheerio.Element): Defin
 		}
 	}
 
+	$root.find('style').remove();
 	const contentsRaw = clean($root.contents().text());
 	const semicolonSeparated = contentsRaw.split(patterns.fieldSeparator);
 
