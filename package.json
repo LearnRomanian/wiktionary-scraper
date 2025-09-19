@@ -2,7 +2,7 @@
   "name": "wiktionary-scraper",
   "description": "A lightweight scraper to fetch information about words in various languages from Wiktionary.",
   "license": "MIT",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",

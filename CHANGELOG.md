@@ -1,3 +1,7 @@
+# 0.0.6
+
+- Fixes `0.0.5` missing the distributable JS files.
+
 # 0.0.5
 
 - Fixed `style` tags getting picked up and yielding ugly CSS in extracted text.
