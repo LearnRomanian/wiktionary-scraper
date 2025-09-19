@@ -34,7 +34,7 @@ import * as Wiktionary from "wiktionary-scraper";
 const results = await Wiktionary.get("word");
 ```
 
-You can change the language of the target word by setting the `lemmaLanguage`:
+By default, the scraper looks for words in English. You can change the language of the target word by setting the `lemmaLanguage`:
 
 ```ts
 import * as Wiktionary from "wiktionary-scraper";
@@ -44,7 +44,7 @@ const results = await Wiktionary.get('o', {
 });
 ```
 
-You can specify if redirects should be followed by setting `followRedirects` to `true`:
+By default, redirects aren't followed. You can specify if redirects should be followed by setting `followRedirects` to `true`:
 
 ```ts
 import * as Wiktionary from "wiktionary-scraper";
