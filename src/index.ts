@@ -34,6 +34,7 @@ export async function get(
 
 	const body = await response.text();
 	const $ = cheerio.load(body);
+	$('style').remove();
 
 	if (!response.ok) {
 		if (response.status === 404 && options.followRedirect) {

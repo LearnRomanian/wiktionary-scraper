@@ -11,8 +11,6 @@ export default function parse($: cheerio.CheerioAPI, skeleton: EntrySectionSkele
 	const $elements = $row.nextUntil(selectors.section);
 
 	const $paragraphs = $elements.filter((_, element) => element.name === selectors.etymology.paragraph);
-
-	$paragraphs.find('style').remove();
 	const paragraphs = $paragraphs.toArray().map((paragraph) => clean($(paragraph).text()));
 
 	const $lists = $elements.filter(
