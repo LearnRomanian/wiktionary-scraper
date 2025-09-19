@@ -1,3 +1,7 @@
+# 0.0.5
+
+- Fixed `style` tags getting picked up and yielding ugly CSS in extracted text.
+
 # 0.0.4
 
 - Fixed the parser being broken after the structure of Wiktionary's layout changed.
